@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head><title>Forum</title>
+
+<script type="text/javascript" src="/assets/student/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/student/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/student/main.css">
+<link rel="stylesheet" type="text/css" href="/assets/student/profile.css">
+<link rel="stylesheet" type="text/css" href="/assets/student/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="/assets/student/dropdown.css">
+<link rel="stylesheet" type="text/css" href="/assets/student/search.css">
+<script type="text/javascript" src="/assets/teacher/forumScript.js"></script>
+</head>
+<body>
+	<ul>
+			<li><a href="/teacher">Home</a></li>
+			<li style="float:right"><a href="../../../../../logout">Log Out</a></li>
+			<li style="float:right"><a href="/teacher/support">Support</a></li>
+			<li style="float:right"><a href="/teacher/account">Account</a></li>
+			<li style="float:right"><a href="/teacher/profile">Profile</a></li>
+			<li style="float:right"><a class="active" href="/teacher/exam">Exam</a></li>
+		</ul>
+
+		<div class="limiter" >
+				<div class="container-login100" align="center" id="show">
+					<span class="login100-form-title">
+						<h1>Forum</h1>
+					</span>
+		
+					<table width="80%" >
+						<% for(var i=0; i < commentList.length; i++){ %>
+						<tr>
+							<td>
+									<b><%= commentList[i].U_ID %></b>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<i><%= commentList[i].C_TEXT %></i>
+							</td>
+						</tr>
+						<tr height="15px"></tr>
+						<% } %>
+					</table> 
+				</div>
+				<span>
+						<form class="login100-form validate-form" width="600px">
+								<table width="600px">
+									<tr>
+										<td>
+												<input placeholder="Type comment here" name="text" id="commentText" type="text">
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<div class="container-login100-form-btn">
+												<input type="button" id="commentButton" value="Send"class="login100-form-btn" />
+												<input type="hidden" id="examId" value="<%= E_ID %>"/>
+											</div>
+										</td>
+									</tr>
+								</table>
+							</form>
+				</span>
+			</div>
+</body>
+</html>

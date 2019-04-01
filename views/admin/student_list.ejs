@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head><title>Student List|Online Exam Portal</title>
+
+	<script type="text/javascript" src="/assets/admin/bootstrap.min.js"></script>
+	<script type="text/javascript" src="/assets/admin/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="/assets/admin/main.css">
+	<!-- <link rel="stylesheet" type="text/css" href="/assets/admin/profile.css"> -->
+	<link rel="stylesheet" type="text/css" href="/assets/admin/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="/assets/admin/search.css">
+	<script type="text/javascript" src="/assets/admin/student_search.js"></script>
+
+</head>
+<body>
+
+	<ul>
+		<li><a class="active" href="/admin">Home</a></li>
+		<li style="float:right"><a href="/logout">Log Out</a></li>
+		<li style="float:right"><a href="/admin/support">Support</a></li>
+		<li style="float:right"><a href="/admin/pending_list">Pending List</a></li>
+		<li style="float:right"><a href="/admin/profile">Profile</a></li>
+		<li style="float:right"><a href="/admin/admin_list">Admin List</a></li>
+		<li style="float:right"><a href="/admin/teacher_list">Teacher List</a></li>
+		<li style="float:right"><a href="/admin/student_list">Student List</a></li>
+    </ul>
+	<center>
+
+			<form name="StudentSearch">
+
+					<div class="container">
+							<div class="row">
+								<div class="col-xs-10 col-xs-offset-1">
+									<div class="input-group">
+										<input class="form-control" placeholder="Search by Student's ID . . ." 
+										 name="search" id="ssearch" type="text">
+										<div class="input-group-btn">
+										<input id="searchbtn" type = 'button' value = 'Search' />
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+						<div class="container emp-profile" id='getall'></div>
+
+	<table border="1" width="400px" >
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>Action</th>
+		</tr>
+
+		<% for(var i=0; i < uList.length; i++){ %>
+		<tr>
+			<td><%= uList[i].S_ID %></td>
+			<td><%= uList[i].S_NAME %></td>
+			<td>
+				<a href="/admin/student_list/<%= uList[i].S_ID %>">Profile</a> |||
+				<a href="/admin/student_list/delete/<%= uList[i].S_ID %>">Delete</a>
+			</td>
+		</tr>
+		<% } %>
+	</table>
+</center>
+</body>
+</html>

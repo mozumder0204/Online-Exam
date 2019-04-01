@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head><title>Admin List|Online Exam Portal</title>
+
+<script type="text/javascript" src="/assets/admin/bootstrap.min.js"></script>
+<script type="text/javascript" src="/assets/admin/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="/assets/admin/main.css">
+<!-- <link rel="stylesheet" type="text/css" href="/assets/admin/profile.css"> -->
+<link rel="stylesheet" type="text/css" href="/assets/admin/bootstrap.min.css">
+
+</head>
+<body>
+
+	<ul>
+		<li><a class="active" href="/admin">Home</a></li>
+		<li style="float:right"><a href="/logout">Log Out</a></li>
+		<li style="float:right"><a href="/admin/pending_list">Pending List</a></li>
+		<li style="float:right"><a href="/admin/profile">Profile</a></li>
+		<li style="float:right"><a href="/admin/admin_list">Admin List</a></li>
+		<li style="float:right"><a href="/admin/teacher_list">Teacher List</a></li>
+		<li style="float:right"><a href="/admin/student_list">Student List</a></li>
+	</ul>
+	<center>
+	<table border="1" width="400px" >
+		<tr>
+			<th>ID</th>
+			<th>NAME</th>
+			<th>Action</th>
+		</tr>
+
+		<% for(var i=0; i < uList.length; i++){ %>
+		<tr>
+			<td><%= uList[i].A_ID %></td>
+			<td><%= uList[i].A_NAME %></td>
+			<td>
+				<a href="/admin/admin_list/<%= uList[i].A_ID %>">Profile</a> |||
+				<a href="/admin/admin_list/delete/<%= uList[i].A_ID %>">Delete</a>
+			</td>
+		</tr>
+		<% } %>
+	</table>
+</center>
+</body>
+</html>
